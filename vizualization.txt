@@ -1,0 +1,66 @@
+lookup_best_c(x_train, y_train, x_test, y_test):
+    accuracy_results = {}
+
+    for value in C_values:
+        tmp_model = LR(solver='lbfgs', class_weight=None, multi_class='ovr',
+                       dual=False, penalty='l2', random_state=337, C=value)
+        # train the model
+        tmp_model.fit(x_train, y_train)
+        tmp_predictions = tmp_model.predict(x_test)
+        tmp_accuracy = accuracy(tmp_predictions, y_test)
+        accuracy_results[value] = tmp_accuracy
+    return accuracy_results
+
+def lookup_best_c(x_train, y_train, x_test, y_test):
+    i = 0
+    accuracy_results = {}
+    for value in C_values:
+        tmp_model = LR(solver='liblinear', class_weight=None, multi_class='ovr',
+                       dual=True, penalty='l2', random_state=337, C=value)
+        tmp_model.fit(x_train, y_train)
+        tmp_predictions = tmp_model.predict(x_test)
+        tmp_accuracy = accuracy(tmp_predictions, y_test)
+        accuracy_results[value] = tmp_accuracy
+    return accuracy_results
+
+
+
+
+def lookup_best_c(x_train, y_train, x_test, y_test):
+    accuracy_results = {}
+    for value in C_values:
+        tmp_model = LR(solver='newton-cg', class_weight=None, multi_class='ovr',
+                       dual=False, penalty='l2', random_state=337, C=value)
+        tmp_model.fit(x_train, y_train)
+        tmp_predictions = tmp_model.predict(x_test)
+        tmp_accuracy = accuracy(tmp_predictions, y_test)
+        accuracy_results[value] = tmp_accuracy
+    return accuracy_results
+
+
+def lookup_best_c(x_train, y_train, x_test, y_test):
+    accuracy_results = {}
+    for value in C_values:
+        tmp_model = LR(solver='liblinear', class_weight=None, multi_class='ovr',
+                       dual=True, penalty='l2', random_state=337, C=value)
+        tmp_model.fit(x_train, y_train)
+        tmp_predictions = tmp_model.predict(x_test)
+        tmp_accuracy = accuracy(tmp_predictions, y_test)
+        accuracy_results[value] = tmp_accuracy
+    return accuracy_results
+C_values = [20 + (i + 1) * 0.1 for i in range(200)]
+
+
+def lookup_best_c(x_train, y_train, x_test, y_test):
+    accuracy_results = {}
+    for value in C_values:
+        tmp_model = LR(solver='liblinear', class_weight=None, multi_class='ovr',
+                       dual=True, penalty='l2', random_state=337, C=value)
+        tmp_model.fit(x_train, y_train)
+        tmp_predictions = tmp_model.predict(x_test)
+        tmp_accuracy = accuracy(tmp_predictions, y_test)
+        accuracy_results[value] = tmp_accuracy
+    return accuracy_results
+
+
+
